@@ -1,0 +1,23 @@
+site:
+  name: eskbank
+  configuration:
+    bucketName: configuration
+    keys:
+      accessKey: abcdef
+      accesskeyid: 12345678
+    path: eskbank/site-setup.json
+    httpEndpoint: http://nginx:9000
+  lanes:
+    - name: lane1
+      siteName: eskbank
+      cameras:
+        - endpoint: rtsp://192.168.88.11:5554
+          fetcherType: RTSP
+          storage:
+            bucketName: development
+            keys:
+              accessKey: abcdef
+              accessKeyID: 12345678
+            processingPath: images/eskbank/lane1/%DATE%/%CAMERANAME%.jpg
+            httpEndpoint: http://nginx:9000
+          cameraName: sideView1
